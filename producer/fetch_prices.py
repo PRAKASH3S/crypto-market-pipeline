@@ -1,4 +1,5 @@
 import requests
+import time
 from datetime import datetime
 COINS = ["bitcoin", "ethereum", "solana", "cardano"]
 
@@ -21,7 +22,9 @@ def fetch_prices():
         direction = "UP" if change > 0 else "DOWN"
         print(f"{direction} {coin.upper():<12} ${price:>10,.2f} ({change}%)")
 if __name__ == "__main__":
-    fetch_prices()
-    
+    while True:
+        fetch_prices()
+        time.sleep(10)
+
         
 
